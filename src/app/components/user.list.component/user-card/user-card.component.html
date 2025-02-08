@@ -1,0 +1,9 @@
+     <div class="user_cards">
+        <P>{{user.name | customUpperCase}}</P>
+        <p>{{user.email | customUpperCase}}</p>
+        <p>{{user.website | customUpperCase}}</p>
+        <p>{{user.company.name | customUpperCase}}</p>
+        <button class="delete" (click)="onDeleteUser(user.id)">УДАЛИТЬ</button>
+        <button class="create" (click)="openDialog()">РЕДАКТИРОВАТЬ</button>
+    </div>
+    

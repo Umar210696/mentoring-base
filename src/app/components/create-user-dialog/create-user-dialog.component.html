@@ -1,0 +1,33 @@
+<h1 class="form">FORM USERS</h1>
+
+<div class="create_input">
+
+    <form class="form_users" action="" [formGroup]="form" (ngSubmit)="submitForm()">
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Введите имя" type="text" formControlName="name">
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Введите email" type="text" formControlName="email">
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width">
+            <mat-label>Website</mat-label>
+            <input matInput placeholder="Введите website" type="text" formControlName="website">
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width">
+            <mat-label>Company Name</mat-label>
+            <input matInput placeholder="Введите название" type="text" formControlName="companyName">
+        </mat-form-field>
+    
+        <button type="submit" class="button_create" matIconSuffix mat-raised-button [disabled]="form.invalid">Add User
+            <mat-icon>add</mat-icon>
+        </button>
+    </form>
+ 
+</div>
+
