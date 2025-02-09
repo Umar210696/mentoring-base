@@ -1,0 +1,58 @@
+<div class="container_1">
+    <div class="header">
+    <div class="header_left">
+      <img src="/assets/Frame.svg" alt="" />
+      <nav class="nav_left">
+        <button class="nav_header_left" routerLink="">{{headerItem1}}</button>
+        <button class="nav_header_left" routerLink="location">{{headerItem2}}</button>
+        <button class="nav_header_left" *ngIf="isShowCatalog">{{headerItem3}}</button>
+      </nav>
+      <button class="button_true_false" (click)= "isShowCatalog = !isShowCatalog">Скрыть/Показать каталог</button>
+      <button class="users" routerLink="users">Users</button>
+      <button class="todos" routerLink="todos">Todos</button>
+      <p class="date">{{todayDate | date: 'medium'}}</p>
+    </div>
+    <div class="header_right">
+      <img class="phone" src="/assets/Phone.svg" alt="" />
+      <div class="number">{{ (phoneNumber || '+7 965 084-29-29') | phoneSanitize }}</div>
+      <img class="heart" src="/assets/Vector.svg" alt="" />
+      <button class="search">
+        <img class="basket" src="/assets/Mask_group.svg" alt="" />
+        <div class="pusto">Пусто</div>
+      </button>
+    </div>
+    </div>
+  </div>
+  
+  <div class="container_2">
+    <div class="header-2">
+    <div class="container_2_header_left">
+      <img src="/assets/light.svg" alt="" />
+      <div class="container_2button_text"></div>
+      <nav class="nav_left_2">
+        <div class="nav_container_2_left">{{header2Item1}}</div>
+        <div class="nav_container_2_left">{{header2Item2}}</div>
+        <div class="nav_container_2_left">{{header2Item3}}</div>
+        <div class="nav_container_2_left">{{header2Item4}}</div>
+        <div class="nav_container_2_left">{{header2Item5}}</div>
+      </nav>
+      <button class="button_Change_text">Изменить текст</button>
+    </div>
+    <div class="container_2_header_right">
+      <form class="input_search">
+        <input
+          class="container_2_right_search"
+          type="search"
+          placeholder="Поиск, например Круг зачистной"
+        />
+        <img
+          class="container_2_right_magnifier"
+          src="/assets/Lupa.svg"
+          alt=""
+        />
+      </form>
+      <img src="/assets/location.svg" alt="" />
+      <div class="city">Москва</div>
+    </div>
+    </div>
+  </div>
