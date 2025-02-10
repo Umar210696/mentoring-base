@@ -49,9 +49,9 @@
     cursor: pointer;
   }
 
-  .users:hover {
-    background-color: #00e1ff;
-  }
+  // .users:hover {
+  //   background-color: #00e1ff;
+  // }
 
   .todos {
     background-color: #4b565e;
@@ -63,9 +63,9 @@
     cursor: pointer;
   }
 
-  .todos:hover {
-    background-color: #00e1ff;
-  }
+  // .todos:hover {
+  //   background-color: #00e1ff;
+  // }
   
   .date {
     color: white;
@@ -84,14 +84,14 @@
   }
 
   .nav_header_left:hover {
-    background-color: #00e1ff;
+    background-color: #4b565e;
   }
 
   .button_Change_text {
     margin-left: 20px;
     color: black;
     border-radius: 25px;
-    height: 25px;
+    height: 20px;
     background-color: #f0ba4e;
     border: none;
     cursor: pointer;
@@ -135,9 +135,9 @@
   }
    
   
-  .search:hover {
-    background-color: #f0ba4e;
-  }
+  // .search:hover {
+  //   background-color: #f0ba4e;
+  // }
   
   
   .basket {

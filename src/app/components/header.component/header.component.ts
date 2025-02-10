@@ -2,8 +2,7 @@ import { DatePipe, NgIf } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { PhoneSanitize } from "../pipes/phone-sanitize.pipe";
-
-
+import { YellowDirective } from "../derictives/yellow.directive";
 
 
 
@@ -13,7 +12,7 @@ import { PhoneSanitize } from "../pipes/phone-sanitize.pipe";
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     standalone: true,
-    imports: [NgIf, RouterLink, DatePipe, PhoneSanitize],
+    imports: [NgIf, RouterLink, DatePipe, PhoneSanitize, YellowDirective],
 })
 
 export class HeaderComponent {
