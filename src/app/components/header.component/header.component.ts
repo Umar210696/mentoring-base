@@ -1,8 +1,11 @@
-import { DatePipe, NgIf } from "@angular/common";
-import { Component } from "@angular/core";
+import { AsyncPipe, DatePipe, NgIf } from "@angular/common";
+import { Component, inject, } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { PhoneSanitize } from "../pipes/phone-sanitize.pipe";
 import { YellowDirective } from "../derictives/yellow.directive";
+import { MatDialog } from "@angular/material/dialog";
+import { AuthComponent } from "../auth/auth.component";
+import { UserService } from "../../guards/user.auth.service";
 
 
 
@@ -12,7 +15,7 @@ import { YellowDirective } from "../derictives/yellow.directive";
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     standalone: true,
-    imports: [NgIf, RouterLink, DatePipe, PhoneSanitize, YellowDirective],
+    imports: [NgIf, RouterLink, DatePipe, PhoneSanitize, YellowDirective, AsyncPipe],
 })
 
 export class HeaderComponent {
@@ -22,6 +25,9 @@ export class HeaderComponent {
   todayDate = new Date ();
     
   isShowCatalog = true;
+
+  private readonly dialog = inject(MatDialog)
+  public readonly userService = inject(UserService)
 
 
   readonly headerItem1 = 'Главная';
@@ -35,4 +41,28 @@ export class HeaderComponent {
   readonly header2Item4 = 'Электрика';
   readonly header2Item5 = 'Интерьер и одежда';
 
+
+
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(AuthComponent, {
+      width: "400px",
+      height: "200px",
+    });
+
+    dialogRef.afterClosed().subscribe((result: string) => {
+      console.log('Результат подптски диалогового окна', result)
+      if (result === 'admin') {
+        this.userService.loginAsAdmin()
+      } else if (result === 'user') {
+        this.userService.loginAsUser()
+      } else return undefined
+    });
+  }
+    public logout() {
+      if(confirm('Вы точно хотите выйти')) {
+      console.log('Совершили logout')
+       return this.userService.logout
+      } else return false;
+    } 
+  
 }

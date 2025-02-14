@@ -1,11 +1,12 @@
 import { AsyncPipe, NgFor } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { TodosApiService } from "../../todos-api.service";
-import { TodosService } from "../../todos.service";
+import { TodosApiService } from "../../services/todos-api.service";
+
 import { TodoCardComponent } from "./todo-card/todo-card.component";
 import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form.component";
-
-
+import { Store } from "@ngrx/store";
+import { TodosActions } from './store/todo.actions';
+import { selectTodos } from "./store/todos.selectors";
 
 
 export interface Todo {
@@ -27,36 +28,34 @@ export interface Todo {
 export class TodosListComponent {
 
     readonly todosApiService = inject(TodosApiService);
-    readonly todosService = inject(TodosService);
+    private readonly store = inject(Store);
+    public readonly todos$ = this.store.select(selectTodos);
 
-      todos: Todo[] = this.todosService.todos
-      todoService: any
-
-   
-    
-
+      
     constructor() {
         this.todosApiService.getTodos().subscribe(
             (respons: any) => {
-                this.todosService.setTodos(respons)
+                this.store.dispatch(TodosActions.set({todos: respons}));
             }
         )
     }
    
     deleteTodo(id: number) {
-        this.todosService.deleteTodo(id);
+        this.store.dispatch(TodosActions.delete({id}));
     }
-
-    editeTodo(todo: any) {
-        this.todosService.editeTodo(todo)
+    editeTodo(todo: any) { 
     }
 
     public todoCreate(formData: any) {
-        this.todosService.createTodo({
-            id: new Date().getTime(),
-            userId: formData.todoId,
-            title: formData.title,
-            completed: formData.completed,
-        })
+        this.store.dispatch(
+            TodosActions.create({
+                todo: {
+                    id: new Date().getTime(),
+                    userId: formData.todoId,
+                    title: formData.title,
+                    completed: formData.completed,
+                }
+            })
+        );
     }
 }
