@@ -1,8 +1,6 @@
-<h1 class="form">FORM USERS</h1>
-
 <div class="create_input">
 
-    <form class="form_users" action="" [formGroup]="form" (ngSubmit)="submitForm()">
+    <form class="form_users" action="" [formGroup]="form" >
         
         <mat-form-field class="example-full-width">
             <mat-label>Name</mat-label>
@@ -24,10 +22,9 @@
             <input matInput placeholder="Введите название" type="text" formControlName="companyName">
         </mat-form-field>
     
-        <button type="submit" class="button_create" matIconSuffix mat-raised-button [disabled]="form.invalid">Add User
+        <button type="submit" class="button_create" matIconSuffix mat-raised-button (click)="FormInput()">Add User
             <mat-icon>add</mat-icon>
         </button>
     </form>
- 
-</div>
 
+</div>

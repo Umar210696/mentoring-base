@@ -3,13 +3,14 @@
     <div class="header_left">
       <img src="/assets/Frame.svg" alt="" />
       <nav class="nav_left">
-        <button class="nav_header_left" routerLink="">{{headerItem1}}</button>
-        <button class="nav_header_left" routerLink="location">{{headerItem2}}</button>
-        <button class="nav_header_left" *ngIf="isShowCatalog">{{headerItem3}}</button>
+        <button yellow class="nav_header_left" routerLink="">{{headerItem1}}</button>
+        <button yellow class="nav_header_left" routerLink="location">{{headerItem2}}</button>
+        <button yellow class="nav_header_left" *ngIf="isShowCatalog">{{headerItem3}}</button>
       </nav>
-      <button class="button_true_false" (click)= "isShowCatalog = !isShowCatalog">Скрыть/Показать каталог</button>
-      <button class="users" routerLink="users">Users</button>
-      <button class="todos" routerLink="todos">Todos</button>
+      <button yellow class="button_true_false" (click)= "isShowCatalog = !isShowCatalog">Скрыть/Показать</button>
+      <button yellow class="users" routerLink="users">Users</button>
+      <button yellow class="todos" routerLink="todos">Todos</button>
+      <button yellow class="admin" routerLink="admin">Admin</button>
       <p class="date">{{todayDate | date: 'medium'}}</p>
     </div>
     <div class="header_right">
@@ -20,6 +21,10 @@
         <img class="basket" src="/assets/Mask_group.svg" alt="" />
         <div class="pusto">Пусто</div>
       </button>
+      <div class="admin_to_enter">
+        <button yellow class="to_enter" (click)="openDialog()" *ngIf="(userService.user$ | async) === null">Войти</button>
+        <button yellow class="to_enter" (click)="logout()" *ngIf="(userService.user$ | async) !== null">Выйти</button>
+      </div>
     </div>
     </div>
   </div>

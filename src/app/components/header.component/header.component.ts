@@ -10,6 +10,7 @@ import { UserService } from "../../guards/user.auth.service";
 
 
 
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -27,7 +28,7 @@ export class HeaderComponent {
   isShowCatalog = true;
 
   private readonly dialog = inject(MatDialog)
-  public readonly userService = inject(UserService)
+  public readonly userService: UserService = inject(UserService)
 
 
   readonly headerItem1 = 'Главная';
@@ -61,7 +62,7 @@ export class HeaderComponent {
     public logout() {
       if(confirm('Вы точно хотите выйти')) {
       console.log('Совершили logout')
-       return this.userService.logout
+       return this.userService.logout()
       } else return false;
     } 
   

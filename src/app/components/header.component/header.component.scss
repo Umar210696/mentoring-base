@@ -30,7 +30,7 @@
     height: 25px;
     background-color: #4b565e;
     border: none;
-    border: solid 1px  rgb(0, 200, 255);
+    border: solid 1px  #f0ba4e;
     cursor: pointer;
   }
   
@@ -45,7 +45,7 @@
     border: none;
     color: white;
     margin-left: 20px;
-    border: solid 1px  rgb(0, 170, 255);
+    border: solid 1px  #f0ba4e;
     cursor: pointer;
   }
 
@@ -59,13 +59,36 @@
     border: none;
     color: white;
     margin-left: 20px;
-    border: solid 1px  rgb(0, 170, 255);
+    border: solid 1px  #f0ba4e;
     cursor: pointer;
   }
 
   // .todos:hover {
   //   background-color: #00e1ff;
   // }
+
+
+  .admin{
+    margin-left: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4b565e;
+    color: #ffffff;
+    border: solid 1px #f0ba4e;
+  }
+
+  .to_enter {
+    width: 55px;
+    height: 20px;
+    background-color: #4b565e;
+    border-radius: 15px;
+    border: solid 1px #f0ba4e;
+    color: #ffffff;
+    gap: 10px;
+    display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
   
   .date {
     color: white;

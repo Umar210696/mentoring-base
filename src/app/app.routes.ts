@@ -5,8 +5,9 @@ import { HomeComponent } from './components/home.component/home.component';
 import { TodosListComponent } from './components/todo.list.component/todos.list.component';
 import { LocationComponent } from './components/location.component/location.component';
 import { AdminComponent } from './components/admin/admin.component';
-// import { AdminGuard } from './guards/auth.admin.guard';
 import { authGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/auth.admin.guard';
+
 
 
 export const routes: Routes = [
@@ -23,8 +24,7 @@ export const routes: Routes = [
 
     { path: 'location', component: LocationComponent},
 
-    {path: 'admin', component: AdminComponent, canActivate: [authGuard] },
+    { path: 'admin', component: AdminComponent, canActivate: [authGuard]},
 
-    // { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
-
+    { path: "admin", component: AdminComponent, canActivate: [AdminGuard]}
 ];

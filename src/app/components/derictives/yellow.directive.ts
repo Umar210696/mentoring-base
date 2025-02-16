@@ -7,7 +7,7 @@ import { Directive, HostBinding, HostListener } from "@angular/core";
 })
 
 export class YellowDirective {
-    color = 'inherit'
+    color = ''
 
     @HostBinding('style.backgroundColor') 
      get backgroundColor() {

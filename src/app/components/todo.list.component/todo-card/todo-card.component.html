@@ -1,12 +1,12 @@
 <div class=todo_cards>
     <p>Текст задачи</p>
-    <p>{{todo.title | customUpperCase}}</p>
+    <p>{{todo.title | customUpperCase | limitationString:20}}</p>
 
     <p>Автор задачи</p>
     <p>{{todo.userId | customUpperCase}}</p>
 
     <p>Задача завершена</p>
-    <div>{{$any(todo).completed ? 'да' : 'нет'}}</div>
+    <div>{{todo.completed ? 'да' : 'нет'}}</div>
     <button class="delete" (click)="ondeleteTodo(todo.id)">УДАЛИТЬ</button>
     <button class="create" (click)="openDialog()">РЕДАКТИРОВАТЬ</button>
 </div>

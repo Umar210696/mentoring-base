@@ -4,6 +4,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from "@angular/material/dialog";
+import { CreateTodoDialogComponent } from "../create-todo-dialog/create-todo-dialog.component";
 
 
 @Component({
@@ -31,4 +33,14 @@ export class CreateTodoFormComponent {
         this.CreateTodo.emit(this.form.value)
         this.form.reset()
     }
+
+
+    
+   constructor(public dialog: MatDialog) {}
+
+   dialogCreateTodo() {
+    const dialogRef = this.dialog.open(CreateTodoDialogComponent, {
+        width: '400px'
+    })
+   }
 }

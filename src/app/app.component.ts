@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header.component/header.component";
 import { FooterComponent } from './components/footer.component/footer.component';
+// import { EffectsModule } from '@ngrx/effects';
+// import { TaskEffects } from './store/task.effects';
+// import { UserEffects } from './store/user.effects';
+
 
 
 // const name = 'Umar';
@@ -17,7 +21,7 @@ console.log(names [4]);
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

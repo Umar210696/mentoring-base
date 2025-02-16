@@ -1,0 +1,23 @@
+
+<form class="form_todos" action="" [formGroup]="form" (ngSubmit)="submitForm()">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>UserId</mat-label>
+        <input matInput placeholder="Введите UserId " type="text" formArrayName="userId">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Введите Title" type="text" formArrayName="title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Completed</mat-label>
+        <input matInput placeholder="Введите Completed" type="text" formArrayName="completed">
+    </mat-form-field>
+
+    <button type="submit" class="button_create" matIconSuffix mat-raised-button [disabled]="form.invalid">Add Todo
+        <mat-icon>add</mat-icon>
+    </button>
+
+</form>
